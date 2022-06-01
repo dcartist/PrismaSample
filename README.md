@@ -1,3 +1,5 @@
-yarn Install for installation
-npx prisma db push - push database
-yarn start to run
+`yarn install` for installation
+
+`npx prisma db push` - push database
+
+`yarn start` to run
