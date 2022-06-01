@@ -11,6 +11,10 @@ interface IUserBodyParam {
   name: string;
   hobbies: string;
 }
+interface MarkDownBodyParam {
+  title: string;
+  body: string;
+}
 
 app.get('/users', async (request, reply) => {
   const allUsersAndHobbies = await prisma.user.findMany({
@@ -35,6 +39,10 @@ app.get<{ Params: IByIdParam }>('/user/:id', async (request, reply) => {
 app.get('/hobbies', async (request, reply) => {
   const allHobbies = await prisma.hobby.findMany();
   reply.send(allHobbies);
+});
+app.get('/md', async (request, reply) => {
+  const markdown = await prisma.markDown.findMany();
+  reply.send(markdown);
 });
 
 app.get<{ Params: IByIdParam }>('/hobby/:id', async (request, reply) => {
